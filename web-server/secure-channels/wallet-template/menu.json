@@ -9,30 +9,7 @@
   },
   "pages": [
     {
-      "name": "Home"
-    },
-    {
-      "name": "Inbox"
-    },
-    {
-      "name": "Outbox"
-    },
-    {
-      "name": "Contacts"
-    },
-    {
-      "name": "Profile",
-      "children": [
-        {
-          "name": "View"
-        },
-        {
-          "name": "Edit"
-        },
-        {
-          "name": "Share"
-        }
-      ]
+      "name": "Minimal Todo Ssapp"
     }
   ]
 }
