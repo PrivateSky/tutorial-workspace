@@ -4,8 +4,9 @@ tutorial-workspace is a basic workspace based on [template-workplace](https://gi
 
 ### Installation
 
-The only two commands you need to run in the *tutorial-workspace* workspace
+The only commands you need to run in the *tutorial-workspace* workspace are:
 ```sh
+$ npm install
 $ npm run server
 $ npm run build-all
 ```
