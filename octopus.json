@@ -83,6 +83,21 @@
                     "cmd": "cd web-server/secure-channels/loader && npm install"
                 }
             ]
+        },
+        {
+            "name": "ssapp-minimal-app",
+            "src": "https://github.com/PrivateSky/ssapp-minimal-app.git",
+            "actions": [
+                {
+                    "type": "smartClone",
+                    "target": ".",
+                    "collectLog": false
+                },
+                {
+                    "type": "execute",
+                    "cmd": "cd ssapp-minimal-app && npm install"
+                }
+            ]
         }
     ],
     "build": [
@@ -133,6 +148,24 @@
                 {
                     "type": "execute",
                     "cmd": "echo Use this folder template in order to customize the application instance by adding configuration, pages etc. > ./web-server/secure-channels/apps/profile-ssapp/readme"
+                }
+            ]
+        },
+        {
+            "name": "secure-channels_bind_to_ssapp-minimal-app",
+            "src": "",
+            "actions": [
+                {
+                    "type": "execute",
+                    "cmd": "cd ssapp-minimal-app && npm run build"
+                },
+                {
+                    "type": "copy",
+                    "src": "./ssapp-minimal-app/seed",
+                    "target": "./web-server/secure-channels/apps/profile-ssapp/seed",
+                    "options": {
+                        "overwrite": true
+                    }
                 }
             ]
         }
