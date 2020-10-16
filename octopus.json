@@ -70,7 +70,7 @@
             ]
         },
         {
-            "name": "web-server/secure-channels/loader",
+            "name": "web-server/tutorial/loader",
             "src": "http://github.com/privatesky/web-dossier-loader.git",
             "actions": [
                 {
@@ -80,7 +80,7 @@
                 },
                 {
                     "type": "execute",
-                    "cmd": "cd web-server/secure-channels/loader && npm install"
+                    "cmd": "cd web-server/tutorial/loader && npm install"
                 }
             ]
         },
@@ -122,7 +122,7 @@
             ]
         },
         {
-            "name": "secure-channels_bind_to_menu-wallet-prototype",
+            "name": "tutorial_bind_to_menu-wallet-prototype",
             "src": "",
             "actions": [
                 {
@@ -132,7 +132,7 @@
                 {
                     "type": "copy",
                     "src": "./menu-wallet-prototype/seed",
-                    "target": "./web-server/secure-channels/wallet-template/seed",
+                    "target": "./web-server/tutorial/wallet-template/seed",
                     "options": {
                         "overwrite": true
                     }
@@ -140,7 +140,7 @@
             ]
         },
         {
-            "name": "secure-channels_bind_to_ssapp-minimal-app",
+            "name": "tutorial_bind_to_ssapp-minimal-app",
             "src": "",
             "actions": [
                 {
@@ -150,7 +150,7 @@
                 {
                     "type": "copy",
                     "src": "./ssapp-minimal-app/seed",
-                    "target": "./web-server/secure-channels/apps/ssapp-minimal-app/seed",
+                    "target": "./web-server/tutorial/apps/ssapp-minimal-app/seed",
                     "options": {
                         "overwrite": true
                     }
