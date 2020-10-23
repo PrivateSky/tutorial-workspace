@@ -33,6 +33,7 @@ resolver.createDSU(templateSSI, (err, dsuInstance) =>{
         }
         console.log("Data written succesfully! :)");
         
+        
         dsuInstance.getKeySSI((err, keyidentifier) => {
             console.log("KeySSI identifier: ", keyidentifier);
 
@@ -52,16 +53,6 @@ resolver.createDSU(templateSSI, (err, dsuInstance) =>{
                 });
             });
         });
-        
-        // let readedData = dsuInstance.readFile('/data', (err, data)=>{
-        //     //Reached when data loaded
-        //     if(err){
-        //         throw err;
-        //     }
-
-        //     const dataObject = JSON.parse(data.toString()); //Convert data (buffer) to string and then to JSON
-        //     console.log("Data load succesfully! :)", dataObject.message); //Print message to console
-        // });
     });
 });
 
