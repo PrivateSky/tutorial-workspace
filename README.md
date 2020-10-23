@@ -1,6 +1,15 @@
 # tutorial-workspace
 
-tutorial-workspace is a basic workspace based on [template-workplace](https://github.com/PrivateSky/template-workspace) and fullfiled with the [ssapp-minimal-app](https://github.com/PrivateSky/ssapp-minimal-app) todo application and the [profile-ssapp-prototype](https://github.com/PrivateSky/profile-ssapp-prototype) .
+tutorial-workspace is a basic workspace based on [template-workplace](https://github.com/PrivateSky/template-workspace) and contains the following applications:
+* a simple **todo** application - A simple todo application. Included from [ssapp-minimal-app](https://github.com/PrivateSky/ssapp-minimal-app)  
+* a **profile** application - An application that display the "profile" of an user. Included from [profile-ssapp-prototype](https://github.com/PrivateSky/profile-ssapp-prototype)
+* a simple **"Hello World! DSU"** - a small tutorial aiming to show how you can use DSU to save and load data.
+
+
+
+**Notes**: 
+* A _workspace_ is a project with many other libraries and configuration loaded.
+* An _included_ application means that the original code is in a separate repo but got included here (either by hard copy or brought in by git's clone commands) 
 
 ## Prerequisites
 
