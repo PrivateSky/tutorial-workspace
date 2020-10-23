@@ -2,6 +2,13 @@
 
 tutorial-workspace is a basic workspace based on [template-workplace](https://github.com/PrivateSky/template-workspace) and fullfiled with the [ssapp-minimal-app](https://github.com/PrivateSky/ssapp-minimal-app) todo application and the [profile-ssapp-prototype](https://github.com/PrivateSky/profile-ssapp-prototype) .
 
+## Prerequisites
+
+You need the following software installed on your machine in order to continue the this guide
+
+1. Install or update [Node](https://nodejs.org/en/) (including NPM) to version 12.14.0.
+2. Install or update [Git](https://git-scm.com/)
+
 ## Installation
 
 The only commands you need to run in the *tutorial-workspace* workspace are:
