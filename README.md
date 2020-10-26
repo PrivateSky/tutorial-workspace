@@ -32,7 +32,7 @@ $ npm install
 # Step 2: Launch the Node js  
 $ npm run server
 
-# Step 3: Scans all applications and wallet it finds in the configuration and tries to run the build script for each one
+# Step 3: Note: Run this in a separate console! Scans all applications and wallet it finds in the configuration and tries to run the build script for each one
 $ npm run build-all
 ```
 
