@@ -17,7 +17,70 @@
 You need the following software installed on your machine in order to continue the this guide
 
 1. Install or update [Node](https://nodejs.org/en/) (including NPM) to version 12.14.0.
-2. Install or update [Git](https://git-scm.com/)
+2. Have [Python 2.7](https://www.python.org/downloads/release/python-2716/) as default Python on your system. (If you have multiple version of Python installed and have Linux or Mac the instruction section bellow named _"Multiple Python under Linux and Mac"_ )
+3. Install or update [Git](https://git-scm.com/)
+4. Have a C/C++ toolchain, like GCC, with support for C++14 minimum. (Instructions in the section 
+belllow named _"Install C/C++ toolchain"_)
+5. Install [node-gyp](https://github.com/nodejs/node-gyp)
+
+#### Multiple Python under Linux and Mac
+Open ~/.bash_profile file.
+```sh
+nano ~/.bash_profile
+```
+Then put the alias as follows:
+
+```sh
+alias python='python2'
+```
+
+Now save the file and then run the ~/.bash_profile file.
+
+```sh
+source ~/.bash_profile
+```
+
+Now, you can use python2 by typing python.
+
+```sh
+python --version
+Python 2.7.xx
+```
+
+#### Install C/C++ toolchain
+
+
+**Windows**
+
+Run "as administrator" the following command:
+```sh
+npm install --global --production windows-build-tools
+```
+Depending on Windows version may be required to run the above command with --vs2015 argument. For other args plese check [Windows Build Tools npm page](https://www.npmjs.com/package/windows-build-tools)
+
+
+**CentOS**
+
+```sh
+sudo yum install centos-release-scl-rh
+sudo yum --enablerepo=centos-sclo-rh-testing install devtoolset-7-gcc*
+echo "source scl_source enable devtoolset-7" >> ~/.bashrc
+source ~/.bashrc
+```
+
+**Ubuntu**
+
+```sh
+sudo apt-get install gcc g++ make
+```
+
+**MacOS**
+
+Install Xcode. You also need to install the Command Line Tools via Xcode. You can find this under the menu Xcode -> Preferences -> Locations (or by running xcode-select --install in your Terminal)
+
+
+
+
 
 ## Installation
 
