@@ -17,7 +17,7 @@
 You need the following software installed on your machine in order to continue the this guide
 
 1. Install or update [Node](https://nodejs.org/en/) (including NPM) to version 12.14.0.
-2. Have [Python 2.7](https://www.python.org/downloads/release/python-2716/) as default Python on your system. (If you have multiple version of Python installed and have Linux or Mac the instruction section bellow named _"Multiple Python under Linux and Mac"_ )
+2. Have [Python 2.7](https://www.python.org/downloads/release/python-2716/) as default Python on your system. (If you have multiple version of Python installed and have Linux or Mac the instruction section bellow named _"Multiple Python under Linux and Mac"_ ) This version is needed because NodeJS up to version 13 uses gyp writen in Python 2.7.
 3. Install or update [Git](https://git-scm.com/)
 4. Have a C/C++ toolchain, like GCC, with support for C++14 minimum. (Instructions in the section 
 belllow named _"Install C/C++ toolchain"_)
