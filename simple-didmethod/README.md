@@ -1,23 +1,15 @@
-
-
-## Installation
-
-Follow installation instruction of README in tutorial-workspace folder
-
-
 ## Simple-didmethod
 
 
-This tutorial sub project helps you understand how you can work directly with DSUs. 
-
-The code for this tutorial is in [helloworld-dsu] folder. It consist of only one file _main.js_
+In this example, we use the KeySSI concept from the OpenDSU standard to generate and resolve a DID Document and its associaciated DID (cf. W3C DID web
+standard). We show how it can be used to verify provenance of signed message.
 
 To **FIRST** run it simply **run the steps** found in the [Installation] section above then: 
 
 
 ```sh
-# Step 1: Go inside [helloworld-dsu]
-cd helloworld-dsu
+# Step 1: Go inside [simple-didmethod]
+cd simple-didmethod
 
 # Step 2: Run the app
 node main.js
