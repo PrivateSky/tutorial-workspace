@@ -13,19 +13,30 @@ const keyssispace = opendsu.loadApi("keyssi");
 
 const crypto = opendsu.loadApi("crypto");
 
+var sreadSSI;
+
+var message= "hello";
 
 
-//Create a DID Document using a SeedSSI
-createKeyDid('default', (err, did, seedSSI)=> {
+
+//Create a DID Document using OpenDSU standard and return a SeedSSI
+createKeyDid('default', (err, keyidentifier, seedSSI)=> {
 
     //Sign a message with SeedSSI private key
-    signWithSeedSSI(seedSSI,"hello", (err, hash, signature)=>{
-    
-       //Resolve DID Document with sReadSSI and return the public Key 
-        resolveKeyDid(did, (err, publicKey )=> {   
+    signWithSeedSSI(seedSSI,message, (err, signature)=>{
+        
+        //Signer create a SReadSSI for the verifier
+        //sreadSSI=seedSSI.derive();
+
+        //Verifier can check/resolve DID Document with sReadSSI and find the public Key to verify the signature
+        resolveKeyDid(keyidentifier, (err, didDoc )=> { 
+
+            //Get public key from DID Document
+            console.log("Read DID document:",didDoc);
+            var publicKey=didDoc.authentication[0].publicKeyBase58;  
             
             //Verify the signature using DID document's public key
-            verifySignatureWithDidPublicKey(did,hash, signature, publicKey, (err, status)=>{
+            verifySignatureWithDidPublicKey(sreadSSI, message, signature, publicKey, (err, status)=>{
                 console.log("Signature was verified:",status);
             })           
             
@@ -40,9 +51,9 @@ createKeyDid('default', (err, did, seedSSI)=> {
 function createKeyDid(domain, callback){
 
     var seedSSI = keyssispace.buildSeedSSI(domain);
-    var didSSI;
-    seedSSI.initialize(domain, undefined, undefined, "v0", "hint",   (err) => {});
-    var readSSI=seedSSI.derive();
+
+    seedSSI.initialize("default", undefined, undefined, "v0", "hint",   (err) => {});    
+
     resolver.createDSU(seedSSI, (err, dsuInstance) =>{
         var did="did:opendsu:"+seedSSI.getIdentifier();
         var didDocument= {
@@ -56,6 +67,7 @@ function createKeyDid(domain, callback){
             "publicKeyBase58": seedSSI.getPublicKey()
           }]
         };
+
         dsuInstance.writeFile('/did', JSON.stringify(didDocument), (err) => {
              dsuInstance.getKeySSI('sread',(err, keyidentifier) => {
                 callback(err, keyidentifier, seedSSI);
@@ -70,13 +82,8 @@ function createKeyDid(domain, callback){
 function resolveKeyDid(keydid, callback){
     resolver.loadDSU(keydid, (err, dsuInstance) =>{
         dsuInstance.readFile('/did', (err, data) => {
-
             const dataObject = JSON.parse(data.toString());
-            console.log("Resolve did with sread:",dataObject);
-
-            var publicKey=dataObject.authentication[0].publicKeyBase58;
-
-            callback(err, publicKey);             
+            callback(err, dataObject);             
            
         });
     });
@@ -87,15 +94,16 @@ function resolveKeyDid(keydid, callback){
 function signWithSeedSSI(seedSSI, message, callback){
     crypto.hash(seedSSI, message, (err, hash) => {
             crypto.sign(seedSSI, hash, (err, signature) => {
-                callback(err, hash, signature);
+                callback(err, signature);
             });
         });
 }
 
-function verifySignatureWithDidPublicKey(keydid, hash, signature, didPublicKey, callback){
-  
-    crypto.verifySignature(keydid, hash, signature, didPublicKey, (err, status)=>{
-        callback(err,status);
+function verifySignatureWithDidPublicKey(keydid, signedMessage, signature, didPublicKey, callback){
+    crypto.hash(keydid, signedMessage, (err, hash) => {
+        crypto.verifySignature(keydid, hash, signature, didPublicKey, (err, status)=>{
+            callback(err,status);
+        })
     })
 
 }
