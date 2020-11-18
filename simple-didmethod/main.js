@@ -41,7 +41,7 @@ function createKeyDid(domain, callback){
 
     var seedSSI = keyssispace.buildSeedSSI(domain);
     var didSSI;
-    seedSSI.initialize("default", undefined, undefined, "v0", "hint",   (err) => {});
+    seedSSI.initialize(domain, undefined, undefined, "v0", "hint",   (err) => {});
     var readSSI=seedSSI.derive();
     resolver.createDSU(seedSSI, (err, dsuInstance) =>{
         var did="did:opendsu:"+seedSSI.getIdentifier();
