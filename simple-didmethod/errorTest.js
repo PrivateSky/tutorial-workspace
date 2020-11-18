@@ -43,7 +43,9 @@ function loadDSUwithIdentifier(keyidentifier, callback){
 		dsuSRead.readFile('/data.txt', (err, data) => {
 			console.log("Data.txt SREAD identifier",data.toString());  
 			dsuSRead.listFiles('/', (err, files) => {
-				console.log("Files in DSU Generated loaded with sReadSSI",files);    
+				console.log("Files in DSU Generated loaded with sReadSSI",files);  
+				console.log("I can load DSU and read the file normally"); 
+				console.log("-------------------------------"); 
 				callback();        
 	        });	           
 		});
@@ -56,7 +58,9 @@ function loadDSUwithSReadSSI(sreadSSI){
 		dsuSRead.readFile('/data.txt', (err, data) => {
 			//console.log("Data.txt SREAD identifier",data.toString());  
 			dsuSRead.listFiles('/', (err, files) => {
-				console.log("Files in DSU Generated loaded with sReadSSI",files);            
+				console.log("Files in DSU Generated loaded with sReadSSI",files);        
+				console.log("I can load a DSU but there is no file inside - I might not be the same DSU that is loaded");   
+				console.log("-------------------------------");   
 	        });	           
 		});
 	});
