@@ -147,7 +147,7 @@
                 {
                     "type": "copy",
                     "src": "./menu-wallet-prototype/seed",
-                    "target": "./web-server/tutorial/wallet-template/seed",
+                    "target": "./web-server/tutorial/wallet-patch/seed",
                     "options": {
                         "overwrite": true
                     }
@@ -165,7 +165,7 @@
                 {
                     "type": "copy",
                     "src": "./profile-ssapp-prototype/seed",
-                    "target": "./web-server/tutorial/apps/profile-ssapp/seed",
+                    "target": "./web-server/tutorial/apps-patch/profile-ssapp/seed",
                     "options": {
                         "overwrite": true
                     }
@@ -183,7 +183,20 @@
                 {
                     "type": "copy",
                     "src": "./ssapp-minimal-app/seed",
-                    "target": "./web-server/tutorial/apps/ssapp-minimal-app/seed",
+                    "target": "./web-server/tutorial/apps-patch/ssapp-minimal-app/seed",
+                    "options": {
+                        "overwrite": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "trust-loader-config",
+            "actions": [
+                {
+                    "type": "copy",
+                    "src": "./trust-loader-config",
+                    "target": "./web-server",
                     "options": {
                         "overwrite": true
                     }
