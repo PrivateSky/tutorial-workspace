@@ -1,5 +1,4 @@
 //Load openDSU enviroment
-require("../privatesky/psknode/bundles/testsRuntime");
 require("../privatesky/psknode/bundles/openDSU");
 
 //Load openDSU SDK
