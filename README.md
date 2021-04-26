@@ -2,7 +2,6 @@
 
 [tutorial-workspace](https://github.com/PrivateSky/tutorial-workspace) is a basic workspace based on [template-workplace](https://github.com/PrivateSky/template-workspace) and contains the following applications:
 * a simple **todo** application - A simple todo application. Included from [ssapp-minimal-app](https://github.com/PrivateSky/ssapp-minimal-app)  
-* a **profile** application - An application that display the "profile" of an user. Included from [profile-ssapp-prototype](https://github.com/PrivateSky/profile-ssapp-prototype)
 * a simple **"Hello World! DSU"** - a small tutorial aiming to show how you can use DSU to save and load data.
 
 
@@ -93,8 +92,8 @@ git clone https://github.com/PrivateSky/tutorial-workspace.git
 # Step 2: Go inside the [tutorial-workspace] folder
 cd tutorial-workspace
 
-# Step 3: Brings all dependencies needed
-$ npm install
+# Step 3: Brings all dependencies needed by a developer to have an working setup
+$ npm run dev-install
 
 # Step 4: Launch the Node js  
 $ npm run server
@@ -103,7 +102,7 @@ $ npm run server
 $ npm run build-all
 ```
 
-After all this steps are done, you can access the application by going to [http://localhost:8080/tutorial/loader/](http://localhost:8080/tutorial/loader/)
+After all this steps are done, you can access the tutorial application by going to [http://localhost:8080/tutorial/loader/](http://localhost:8080/tutorial/loader/)
 
 
 ## Hello World! DSU Tutorial
@@ -167,12 +166,12 @@ npm run build
 ```
 
 ### Add a new file 
-Add a new named hello.html inside _${workSpaceRoot}_/apihub-root/tutorial/wallet-template/pages/ 
+Add a new named hello.html inside _${workSpaceRoot}_/apihub-root/tutorial/wallet-patch/pages/ 
 
 
 ```sh
 # 7. Create file
-touch ../apihub-root/tutorial/wallet-template/pages/hello.html
+touch ../apihub-root/tutorial/wallet-patch/pages/hello.html
 
 ```
 
@@ -184,11 +183,11 @@ and add the following content to it:
 ```
 
 ### Update menu.json
-Update _${workSpaceRoot}_/apihub-root/tutorial/wallet-template/menu.json 
+Update _${workSpaceRoot}_/apihub-root/tutorial/wallet-patch/menu.json 
 
 ```sh
 # 8. Edit menu.json
-nano ../apihub-root/tutorial/wallet-template/menu.json
+nano ../apihub-root/tutorial/wallet-patch/menu.json
 ```
 add:
 
