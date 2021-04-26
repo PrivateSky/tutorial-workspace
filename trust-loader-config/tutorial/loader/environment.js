@@ -4,7 +4,7 @@ export default{
   "agent": "browser",
   "system":   "any",
   "browser":  "any",
-  "mode":  "autologin",
+  "mode":  "dev-autologin",
   "domain":  "default",
   "stage":  "release",
   "sw": true,
