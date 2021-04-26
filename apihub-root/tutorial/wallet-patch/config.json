@@ -1,0 +1,9 @@
+{
+  "theme": "default",
+  "basePagesUrl": "/pages/",
+  "profile": {
+    "username": "Tutorial Wallet",
+    "email": "sinica@axiologic.net",
+    "avatar": "/assets/images/cardinal.png"
+  }
+}
