@@ -167,12 +167,12 @@ npm run build
 ```
 
 ### Add a new file 
-Add a new named hello.html inside _${workSpaceRoot}_/web-server/tutorial/wallet-template/pages/ 
+Add a new named hello.html inside _${workSpaceRoot}_/apihub-root/tutorial/wallet-template/pages/ 
 
 
 ```sh
 # 7. Create file
-touch ../web-server/tutorial/wallet-template/pages/hello.html
+touch ../apihub-root/tutorial/wallet-template/pages/hello.html
 
 ```
 
@@ -184,11 +184,11 @@ and add the following content to it:
 ```
 
 ### Update menu.json
-Update _${workSpaceRoot}_/web-server/tutorial/wallet-template/menu.json 
+Update _${workSpaceRoot}_/apihub-root/tutorial/wallet-template/menu.json 
 
 ```sh
 # 8. Edit menu.json
-nano ../web-server/tutorial/wallet-template/menu.json
+nano ../apihub-root/tutorial/wallet-template/menu.json
 ```
 add:
 

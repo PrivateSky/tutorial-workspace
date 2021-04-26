@@ -137,7 +137,7 @@ function addAppTemplateToWatchList(appName) {
 
     appTemplatesToWatch.push(path.resolve([
         rootDir,
-        'web-server',
+        'apihub-root',
         config.serverDocRoot,
         appTemplateDir
     ].join(path.sep)));

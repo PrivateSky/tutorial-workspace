@@ -12,7 +12,7 @@
 !package-lock.json
 !README.md
 !CHANGELOG
-!web-server/secure-channels/wallet-template
+!apihub-root/secure-channels/wallet-template
 !helloworld-dsu
 !helloworld-dsu/*
 !helloworld-constitution
