@@ -40,6 +40,21 @@
             ]
         },
         {
+            "name": "webcardinal",
+            "src": "https://github.com/webcardinal/webcardinal-bundler",
+            "actions": [
+                {
+                    "type": "smartClone",
+                    "target": ".",
+                    "collectLog": false
+                },
+                {
+                    "type": "execute",
+                    "cmd": "cd webcardinal && npm install && npm run bundle-webcardinal && npm run build"
+                }
+            ]
+        },
+        {
             "name": "themes/blue-fluorite-theme",
             "src": "https://github.com/PrivateSky/blue-fluorite-theme.git",
             "actions": [
@@ -70,7 +85,7 @@
             ]
         },
         {
-            "name": "web-server/tutorial/loader",
+            "name": "apihub-root/tutorial/loader",
             "src": "http://github.com/privatesky/web-dossier-loader.git",
             "actions": [
                 {
@@ -80,22 +95,7 @@
                 },
                 {
                     "type": "execute",
-                    "cmd": "cd web-server/tutorial/loader && npm install"
-                }
-            ]
-        },
-		{
-            "name": "profile-ssapp-prototype",
-            "src": "http://github.com/privatesky/profile-ssapp-prototype.git",
-            "actions": [
-                {
-                    "type": "smartClone",
-                    "target": ".",
-                    "collectLog": false
-                },
-                {
-                    "type": "execute",
-                    "cmd": "cd profile-ssapp-prototype && npm install"
+                    "cmd": "cd apihub-root/tutorial/loader && npm install"
                 }
             ]
         },
@@ -118,11 +118,19 @@
     "build": [
         {
             "name": "cardinal-wallet-build",
-            "src": "",
             "actions": [
                 {
                     "type": "execute",
                     "cmd": "cd cardinal && npm run build-dossier"
+                }
+            ]
+        },
+        {
+            "name": "webcardinal-wallet-build",
+            "actions": [
+                {
+                    "type": "execute",
+                    "cmd": "cd webcardinal && npm run build-dossier"
                 }
             ]
         },
@@ -147,25 +155,7 @@
                 {
                     "type": "copy",
                     "src": "./menu-wallet-prototype/seed",
-                    "target": "./web-server/tutorial/wallet-patch/seed",
-                    "options": {
-                        "overwrite": true
-                    }
-                }
-            ]
-        },
-		{
-            "name": "tutorial_bind_to_profile-ssapp-prototype",
-            "src": "",
-            "actions": [
-                {
-                    "type": "execute",
-                    "cmd": "cd profile-ssapp-prototype && npm run build"
-                },
-                {
-                    "type": "copy",
-                    "src": "./profile-ssapp-prototype/seed",
-                    "target": "./web-server/tutorial/apps-patch/profile-ssapp/seed",
+                    "target": "./apihub-root/tutorial/wallet-patch/seed",
                     "options": {
                         "overwrite": true
                     }
@@ -183,7 +173,7 @@
                 {
                     "type": "copy",
                     "src": "./ssapp-minimal-app/seed",
-                    "target": "./web-server/tutorial/apps-patch/ssapp-minimal-app/seed",
+                    "target": "./apihub-root/tutorial/apps-patch/ssapp-minimal-app/seed",
                     "options": {
                         "overwrite": true
                     }
@@ -196,7 +186,7 @@
                 {
                     "type": "copy",
                     "src": "./trust-loader-config",
-                    "target": "./web-server",
+                    "target": "./apihub-root",
                     "options": {
                         "overwrite": true
                     }
