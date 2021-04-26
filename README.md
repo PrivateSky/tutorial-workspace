@@ -178,7 +178,7 @@ touch ../apihub-root/tutorial/wallet-patch/pages/hello.html
 and add the following content to it:
 ```html
 <psk-container controller-name="WalletSsappLauncher" data-app-name="helloworld-ssapp">
-    <psk-ssapp key-ssi="@keySSI"></psk-ssapp>
+    <psk-ssapp key-ssi="@keySSI" landing-path="/home"></psk-ssapp>
 </psk-container>
 ```
 
