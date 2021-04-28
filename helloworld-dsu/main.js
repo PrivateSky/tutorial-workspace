@@ -11,7 +11,7 @@ const resolver = opendsu.loadApi("resolver");
 const keyssispace = opendsu.loadApi("keyssi");
 
 //Create a template keySSI (for default domain). See /conf/BDNS.hosts.json
-const templateSSI = keyssispace.buildTemplateSeedSSI('default');
+const templateSSI = keyssispace.createTemplateSeedSSI('default');
 
 let data  = {"message": "Hello world!"};
 
@@ -33,7 +33,7 @@ resolver.createDSU(templateSSI, (err, dsuInstance) =>{
         console.log("Data written succesfully! :)");
         
         
-        dsuInstance.getKeySSI((err, keyidentifier) => {
+        dsuInstance.getKeySSIAsString((err, keyidentifier) => {
             console.log("KeySSI identifier: ", keyidentifier);
 
             resolver.loadDSU(keyidentifier, (err, anotherDSUInstance) => {
