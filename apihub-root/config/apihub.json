@@ -1,7 +1,0 @@
-{
-  "storage": "../apihub-root",
-  "port": 8080,
-  "enableRequestLogger": true,
-  "enableJWTAuthorisation": false,
-  "enableLocalhostAuthorization": false
-}
