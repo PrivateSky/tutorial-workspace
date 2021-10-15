@@ -12,26 +12,11 @@
     "bricksFabric",
     "bricking",
     "anchoring",
-    "dsu-wizard",
-    "gtin-dsu-wizard",
-    "epi-mapping-engine",
-    "epi-mapping-engine-results",
     "debugLogger",
     "mq",
     "staticServer"
   ],
   "componentsConfig": {
-    "epi-mapping-engine": {
-      "module": "./../../epi-utils",
-      "function": "getEPIMappingEngineForAPIHUB"
-    },
-    "epi-mapping-engine-results": {
-      "module": "./../../epi-utils",
-      "function": "getEPIMappingEngineMessageResults"
-    },
-    "gtin-dsu-wizard": {
-      "module": "./../../gtin-dsu-wizard"
-    },
     "bricking": {},
     "anchoring": {}
   },
