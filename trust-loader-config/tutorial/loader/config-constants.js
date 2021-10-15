@@ -1,5 +1,6 @@
 let LOADER_GLOBALS = {
 	THEME: "app",
+	SHOW_ACTION_BUTTON: false,
 	LABELS_DICTIONARY: {
 		APP_NAME: "TUTORIAL",
 		APP_DESCRIPTION: "Just a simple tutorial",
