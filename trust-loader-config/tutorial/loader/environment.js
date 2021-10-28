@@ -4,7 +4,7 @@ export default{
   "agent": "browser",
   "system":   "any",
   "browser":  "any",
-  "mode":  "dev-autologin",
+  "mode":  "dev-secure",
   "vaultDomain":  "vault",
   "didDomain":  "vault",
   "stage":  "release",
