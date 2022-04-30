@@ -190,6 +190,15 @@
             ]
         },
         {
+            "name": "ssapp-minimal-app",
+            "actions": [
+                {
+                    "type": "execute",
+                    "cmd": "cd ssapp-minimal-app && npm run build"
+                }
+            ]
+        },
+        {
             "name": "tutorial_bind_to_menu-wallet-prototype",
             "src": "",
             "actions": [
