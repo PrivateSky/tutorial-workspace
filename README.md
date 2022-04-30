@@ -1,85 +1,22 @@
 # tutorial-workspace
 
 [tutorial-workspace](https://github.com/PrivateSky/tutorial-workspace) is a basic workspace based on [template-workplace](https://github.com/PrivateSky/template-workspace) and contains the following applications:
-* a simple **todo** application - A simple todo application. Included from [ssapp-minimal-app](https://github.com/PrivateSky/ssapp-minimal-app)  
+* a simple **TODO** application - A simple todo application. Included from [ssapp-minimal-app](https://github.com/PrivateSky/ssapp-minimal-app)
 * a simple **"Hello World! DSU"** - a small tutorial aiming to show how you can use DSU to save and load data.
 
 
 
-**Notes**: 
+**Notes**:
 * A _workspace_ is a project with many other libraries and configuration loaded.
 * We will use _${workSpaceRoot}_ for the workspace folder
-* An _included_ application means that the original code is in a separate repo but got included here (either by hard copy or brought in by git's clone commands) 
+* An _included_ application means that the original code is in a separate repo but got included here (either by hard copy or brought in by git's clone commands)
 
 ## Prerequisites
 
 You need the following software installed on your machine in order to continue the this guide
 
-1. Install or update [Node](https://nodejs.org/en/) (including NPM) to version **14.15**.
-2. ~~Have [Python 2.7](https://www.python.org/downloads/release/python-2716/) as default Python on your system. (If you have multiple version of Python installed and have Linux or Mac the instruction section bellow named _"Multiple Python under Linux and Mac"_ ) This version is needed because NodeJS up to version 13 uses gyp writen in Python 2.7.~~
-3. Install or update [Git](https://git-scm.com/)
-4. ~~Have a C/C++ toolchain, like GCC, with support for C++14 minimum. (Instructions in the section 
-belllow named _"Install C/C++ toolchain"_)~~
-5. ~~Install [node-gyp](https://github.com/nodejs/node-gyp) _~~
-
-#### Multiple Python under Linux and Mac
-Open ~/.bash_profile file.
-```sh
-nano ~/.bash_profile
-```
-Then put the alias as follows:
-
-```sh
-alias python='python2'
-```
-
-Now save the file and then run the ~/.bash_profile file.
-
-```sh
-source ~/.bash_profile
-```
-
-Now, you can use python2 by typing python.
-
-```sh
-python --version
-Python 2.7.xx
-```
-
-#### Install C/C++ toolchain
-
-
-**Windows**
-
-Run "as administrator" the following command:
-```sh
-npm install --global --production windows-build-tools
-```
-Depending on Windows version may be required to run the above command with --vs2015 argument. For other args plese check [Windows Build Tools npm page](https://www.npmjs.com/package/windows-build-tools)
-
-
-**CentOS**
-
-```sh
-sudo yum install centos-release-scl-rh
-sudo yum --enablerepo=centos-sclo-rh-testing install devtoolset-7-gcc*
-echo "source scl_source enable devtoolset-7" >> ~/.bashrc
-source ~/.bashrc
-```
-
-**Ubuntu**
-
-```sh
-sudo apt-get install gcc g++ make
-```
-
-**MacOS**
-
-Install Xcode. You also need to install the Command Line Tools via Xcode. You can find this under the menu Xcode -> Preferences -> Locations (or by running xcode-select --install in your Terminal)
-
-
-
-
+1. Install or update [Node](https://nodejs.org/en/) (including NPM) to version **14.15** .
+2. Install or update [Git](https://git-scm.com/)
 
 ## Installation
 
@@ -108,11 +45,11 @@ After all this steps are done, you can access the tutorial application by going 
 ## Hello World! DSU Tutorial
 
 
-This tutorial sub project helps you understand how you can work directly with DSUs. 
+This tutorial sub project helps you understand how you can work directly with DSUs.
 
 The code for this tutorial is in [helloworld-dsu] folder. It consist of only one file _main.js_
 
-To **FIRST** run it simply **run the steps** found in the [Installation] section above then: 
+To **FIRST** run it simply **run the steps** found in the [Installation] section above then:
 
 
 ```sh
@@ -123,7 +60,7 @@ cd helloworld-dsu
 node main.js
 ```
 
-You should get something like: 
+You should get something like:
 
 ```
 ....
@@ -134,119 +71,41 @@ Data load succesfully! :) Hello world!
 ```
 
 
-## Hello World! SSAPP Tutorial
+## Hello World! Wallet & SSAPP Tutorial
 
-This tutorial sub project helps you understand how you can create a simple SSAPP from scratch. 
+This tutorial sub project helps you understand how you can create a simple SSAPP and a Wallet from scratch.
 
-The code for this tutorial will end up in [helloworld-ssapp] folder. 
+The code for this tutorial will end up in [helloworld-ssapp] folder.
 
-To **FIRST** run it simply **run the steps** found in the [Installation] section above then follow these steps: 
+To **FIRST** run it simply **run the steps** found in the [Installation] section above then follow these steps:
 
-### Clone a SSApp repository
+### Let's start to create our first SSApp based on a template
 ```sh
 
-# 1. Clone the repo
+# 1. Clone the template repo
 git clone https://github.com/PrivateSky/ssapp-template.git helloworld-ssapp
 
-# 2. Go inside it, remove .git folder and bring dependecies 
-cd helloworld-ssapp && rm -rf .git && npm install
+# 2. Go inside it, remove .git folder and bring dependencies and exit back the folder
+cd helloworld-ssapp && rm -rf .git && npm install && cd ..
 
-# 3. Go one folder up
-cd ..
+# 3. Bind newly helloworld-ssapp to new wallet 
+npm run bind-wallet helloworld-wallet helloworld-ssapp 
 
-# 4. Bind newly helloworld-ssapp to existing tutorial workspace 
-npm run bind-app tutorial helloworld-ssapp
+# 4. Prepare a loader for our newly wallet
+npm run add-loader apihub-root/helloworld-wallet/loader https://github.com/PrivateSky/trust-loader 
 
-# 5. Go inside helloworld-ssapp
-cd helloworld-ssapp
+# 5. Configure the loader 
+cp -r trust-loader-config/tutorial trust-loader-config/helloworld-wallet
 
-# 6. Build it
-npm run build
-
-```
-
-### Add a new file 
-Add a new named hello.html inside _${workSpaceRoot}_/apihub-root/tutorial/wallet-patch/pages/ 
-
-
-```sh
-# 7. Create file
-touch ../apihub-root/tutorial/wallet-patch/pages/hello.html
-
-```
-
-and add the following content to it:
-```html
-<psk-container controller-name="WalletSsappLauncher" data-app-name="helloworld-ssapp">
-    <psk-ssapp key-ssi="@keySSI" landing-path="/home"></psk-ssapp>
-</psk-container>
-```
-
-### Update menu.json
-Update _${workSpaceRoot}_/apihub-root/tutorial/wallet-patch/menu.json 
-
-```sh
-# 8. Edit menu.json
-nano ../apihub-root/tutorial/wallet-patch/menu.json
-```
-add:
-
-```javascript
-{
-    "name" : "Hello"
-}    
-
-```
-
-to pages sections so in the end should look like:
-```javascript
-{
-  //other lines...
-  "pages": [
-    {
-      "name": "Minimal ssapp"
-    },
-    {
-      "name" : "Hello"
-    }
-  ]
-}
-```
-
-This will inform the containing tutorial workspace to use it as menu entry.
-
-**Note** : Watch out not to miss the comma (,) before the newly added section.
-
-
-### Update your home.html page
-Edit _${workSpaceRoot}_/helloworld-ssapp/code/pages/home.html 
-
-```sh
-# 9. Edit home file
-nano ./code/pages/home.html 
-```
-
-and replace with:
-
-```html
-<psk-page title="Hello World SSApp!">
-    <psk-card title="Hello World SSApp!">
-        <p>Jean-Luc Picard: Engage!</p>
-    </psk-card>
-</psk-page>
-
-```
-
-### Rebuild the workspace
-You need to rebuild the workspace to use newly added SSApp
-```sh
-#10 Go into the workspace root folder
-cd ..
-
-# 11. Rebuild the workspace
+# 6. Rebuild the rest of the workspace
 npm run build-all
+
 ```
 
-### Open it in your browser
-Open [http://localhost:8080/tutorial/loader/](http://localhost:8080/tutorial/loader/) in a 
+### Let's test our Wallet and SSApp
+Open [http://localhost:8080/helloworld-wallet/loader/](http://localhost:8080/helloworld-wallet/loader/) in a
 new Incognito Chrome browser (Ctr+Shift+N)
+
+### Develop more our newly SSApp
+
+To continue with the development of the newly created SSApp and Wallet please refer to the [PrivateSky](http://privatesky.xyz), [OpenDSU](http://opendsu.com) and [Webcardinal](https://opendsu.com/wallets/webcardinal/overview) documentation websites.
