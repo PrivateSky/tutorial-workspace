@@ -81,6 +81,7 @@ To **FIRST** run it simply **run the steps** found in the [Installation] section
 
 ### Let's start to create our first SSApp based on a template
 ```sh
+# 0. Verify to be in the root folder of our workspace
 
 # 1. Clone the template repo
 git clone https://github.com/PrivateSky/ssapp-template.git helloworld-ssapp
