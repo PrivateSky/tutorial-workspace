@@ -199,7 +199,7 @@
                 },
                 {
                     "type": "copy",
-                    "src": "./menu-wallet-prototype/seed",
+                    "src": "./ssapp-minimal-app/seed",
                     "target": "./apihub-root/tutorial/wallet-patch/seed",
                     "options": {
                         "overwrite": true
